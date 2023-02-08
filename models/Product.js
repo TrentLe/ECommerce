@@ -11,7 +11,7 @@ Product.init(
   {
     // define columns
     id: {
-      type:INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -30,7 +30,14 @@ Product.init(
     stock: {
       type: INTEGER,
       allowNull: false,
-    }
+    },
+    category_id: {
+      type: INTEGER,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+  },
   },
   {
     sequelize,
